@@ -1,6 +1,7 @@
 $checkbox-width: 18px
 $dist-checkbox-text: 10px
-$color-grey: #aaa
+$color-light-grey: #bcbcbc
+$color-dark-grey: #aaa
 $color-blue: #4550c9
 
 input[type='text']
@@ -36,21 +37,28 @@ ul
         .checkbox-container
             display: flex
             flex-direction: row
-            align-items: baseline
+            align-items: center
             justify-content: space-between
             border: 1px solid transparent
 
-            .icon
-                color: $color-grey
+            .icon                
                 margin: 0 10px
+
             .icon-lines
                 cursor: all-scroll
                 width: 20px
+                color: #e5e5e5
+                &:hover
+                    color: $color-light-grey
+
             .icon-delete
+                color: $color-light-grey
                 margin-left: auto
+                padding-right: 20px
                 cursor: pointer
                 &:hover
-                    color: #999
+                    color: $color-dark-grey
+
             &:hover
                 background-color: #aaaaaa20
 
@@ -67,22 +75,29 @@ ul
             border-bottom: 2px solid $color-blue
 
         .edit-item input[type='text']
-            border-bottom: 1px solid $color-grey
+            border-bottom: 1px solid $color-light-grey
 
-@media screen and (min-width: 481px) and ( max-width: 1200px)
+@media screen and ( max-width: 1024px)
     ul
-        width: 60%
-        margin: 10vh auto 0
+        width: 70%
+        margin: 10vh auto
 
 @media screen and ( max-width: 480px)
     ul
         width: 80%
-        padding: 40px 0
-        margin: 10vh auto 0
+        padding: 40px 10px
+        margin: 10vh auto
+
+        li .new-item input[type='text'], li .edit-item input[type='text']
+            width: 60%
 
 .checkbox
     .item-name
         min-height: 26px
+        max-width: 100%
+        overflow-wrap: break-word
+        word-wrap: break-word
+        hyphens: auto
 
     input[type='checkbox']
         display: none
@@ -91,6 +106,7 @@ ul
         position: relative
         display: inline-block
         padding-left: $checkbox-width + $dist-checkbox-text
+        max-width: 60%
         cursor: text
 
         &::before, &::after
@@ -104,7 +120,7 @@ ul
             left: 0px
             height: 18px
             width: 18px
-            border: 1px solid $color-grey
+            border: 1px solid $color-dark-grey
             cursor: pointer
 
         &::after
@@ -125,7 +141,7 @@ ul
 
     input[type="checkbox"]:checked + label
         text-decoration: line-through
-        color: $color-grey
+        color: $color-light-grey
 
     input[type="checkbox"]:checked + label::after
         content: ""
