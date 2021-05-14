@@ -12,7 +12,6 @@ function Item({ draggedOver, list, setList, item, handleOnDragStart, handleOnDra
 
     useEffect(() => {
         document.addEventListener("mousedown", handleClick);
-
         return () => {
             document.removeEventListener("mousedown", handleClick);
         };
