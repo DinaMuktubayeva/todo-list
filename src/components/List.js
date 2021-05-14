@@ -5,13 +5,14 @@ import "./List.sass"
 
 function List({ list, setList }) {
     const [listTitle, setListTitle] = useState("My List")
+    const [listDescription, setListDescription] = useState("Tasks for a productive day")
     const [newItem, setNewItem] = useState("")
     const [draggedId, setDraggedId] = useState(-1)
     const [droppedId, setDroppedId] = useState(-1)
     const [draggedOverId, setDraggedOverId] = useState(-1)
 
     function inputHandler(e) {
-            setNewItem(e.target.value)
+        setNewItem(e.target.value)
     }
 
     function addElement(e) {
@@ -65,10 +66,9 @@ function List({ list, setList }) {
     return (
         <div>
             <ul>
-                <form onSubmit={e => { e.preventDefault(); setListTitle(listTitle) }}>
-                    <input className="list-title" type="text" value={listTitle} onChange={e => setListTitle(e.target.value)} />
-                    <input type="submit" style={{ display: 'none' }} />
-                </form>
+                <input className="list-info list-title" type="text" value={listTitle} onChange={e => setListTitle(e.target.value)} />
+                <input className="list-info list-description" type="text" value={listDescription}
+                    onChange={e => setListDescription(e.target.value)} />
                 {list.map((item) => (
                     <li key={item.id}>
                         <Item
