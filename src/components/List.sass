@@ -21,7 +21,7 @@ ul
     list-style: none
     text-align: left
     font-size: 17px
-    line-height: 2.1*$checkbox-width
+    line-height: 36px
     width: 30%
     text-align: left
 
@@ -60,7 +60,7 @@ ul
 
         .new-item input[type='text'], .edit-item input[type='text']
             margin-left: 40px + $checkbox-width + $dist-checkbox-text
-            width: 70%f
+            width: 70%
             font-size: 17px
 
         .new-item input[type='text']
@@ -73,49 +73,52 @@ ul
     ul
         width: 100%
 
-.checkbox input[type='checkbox']
-    display: none
+.checkbox
+    .item-name
+        min-height: 26px
 
-.checkbox label
-    position: relative
-    display: inline-block
-    padding-left: $checkbox-width + $dist-checkbox-text
-    cursor: text
+    input[type='checkbox']
+        display: none
 
-.checkbox label::before,
-.checkbox label::after
-    position: absolute
-    content: ""
-    display: inline-block
+    label
+        position: relative
+        display: inline-block
+        padding-left: $checkbox-width + $dist-checkbox-text
+        cursor: text
+        
+        &::before, &::after
+            position: absolute
+            content: ""
+            display: inline-block
 
-.checkbox label::before
-    text-align: center
-    top: $checkbox-width / 2
-    left: 0px
-    height: $checkbox-width
-    width: $checkbox-width
-    border: 1px solid $color-grey
-    cursor: pointer
+        &::before
+            text-align: center
+            top: 9px
+            left: 0px
+            height: 18px
+            width: 18px
+            border: 1px solid $color-grey
+            cursor: pointer
 
-.checkbox label:hover::before
+        &::after
+            left: 4px
+            top: 9px + 4px
+            height: 9px - 3px
+            width: 9px + 1px
+            border-left: 2px solid $color-blue
+            border-bottom: 2px solid $color-blue
+            transform: rotate(-45deg)
+
+    label:hover::before
     // box-shadow: 0px 0px 2px 1px rgba($color-blue, 0.25) inset
-    border: 1px solid $color-blue
+        border: 1px solid $color-blue
 
-.checkbox label::after
-    left: $checkbox-width / 4
-    top: $checkbox-width / 2 + 4
-    height: $checkbox-width / 2 - 3
-    width: $checkbox-width / 2 + 1
-    border-left: 2px solid $color-blue
-    border-bottom: 2px solid $color-blue
-    transform: rotate(-45deg)
+    input[type="checkbox"] + label::after
+        content: none
 
-.checkbox input[type="checkbox"] + label::after
-    content: none
+    input[type="checkbox"]:checked + label
+        text-decoration: line-through
+        color: $color-grey
 
-.checkbox input[type="checkbox"]:checked + label
-    text-decoration: line-through
-    color: $color-grey
-
-.checkbox input[type="checkbox"]:checked + label::after
-    content: ""
+    input[type="checkbox"]:checked + label::after
+        content: ""

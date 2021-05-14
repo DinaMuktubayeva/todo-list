@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Item from "./Item"
 import Input from "./Input"
 import "./List.sass"
@@ -11,9 +11,6 @@ function List({ list, setList }) {
     const [draggedOverId, setDraggedOverId] = useState(-1)
 
     function inputHandler(e) {
-        if (e.target.value == "")
-            setNewItem(" ")
-        else
             setNewItem(e.target.value)
     }
 
@@ -27,7 +24,7 @@ function List({ list, setList }) {
 
     const handleOnDragStart = e => {
         setDraggedId(e.target.id)
-        console.log("dragging " + e.currentTarget.id)
+        // console.log("dragging " + e.currentTarget.id)
     }
 
     const handleOnDragOver = e => {
@@ -59,16 +56,19 @@ function List({ list, setList }) {
         let listCopy = list
         listCopy.splice(start, 1)
         listCopy.splice(end, 0, item)
-        console.log(item)
-        console.log("deleting at " + start)
-        console.log("inserting into " + end)
+        // console.log(item)
+        // console.log("deleting at " + start)
+        // console.log("inserting into " + end)
         setList(listCopy)
     }
 
     return (
         <div>
             <ul>
-                <input className="list-title" type="text" value={listTitle} onChange={e => setListTitle(e.target.value)} />
+                <form onSubmit={e => { e.preventDefault(); setListTitle(listTitle) }}>
+                    <input className="list-title" type="text" value={listTitle} onChange={e => setListTitle(e.target.value)} />
+                    <input type="submit" style={{ display: 'none' }} />
+                </form>
                 {list.map((item) => (
                     <li key={item.id}>
                         <Item

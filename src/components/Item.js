@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import './List.sass'
-
 import { faGripLines, faTrashAlt } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
@@ -12,9 +11,8 @@ function Item({ draggedOver, list, setList, item, handleOnDragStart, handleOnDra
     const [newName, setNewName] = useState(item.name)
 
     useEffect(() => {
-        // add when mounted
         document.addEventListener("mousedown", handleClick);
-        // return function to be called when unmounted
+
         return () => {
             document.removeEventListener("mousedown", handleClick);
         };
@@ -27,7 +25,6 @@ function Item({ draggedOver, list, setList, item, handleOnDragStart, handleOnDra
                     ...todo, checked: !todo.checked
                 }
             }
-
             return todo
         }))
     }
@@ -50,9 +47,8 @@ function Item({ draggedOver, list, setList, item, handleOnDragStart, handleOnDra
     }
 
     const handleClick = e => {
-        // outside click
+        // trigger form submit on outside click
         if (node.current && !node.current.contains(e.target))
-            // trigger form submit
             form.current.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }))
     }
 
@@ -61,7 +57,6 @@ function Item({ draggedOver, list, setList, item, handleOnDragStart, handleOnDra
         updateName()
         setEditMode(false)
     }
-
 
     return (
         <div>
@@ -85,8 +80,8 @@ function Item({ draggedOver, list, setList, item, handleOnDragStart, handleOnDra
                         <div className="checkbox" >
                             <input id={inputId} type="checkbox" onChange={inputCheckHandler} />
                             <label htmlFor={inputId} >
-                                <div className="item-name" onClick={() => { setEditMode(true) }}>
-                                    {newName}
+                                <div className="item-name" onClick={() => { setEditMode(true) }} >
+                                    {item.name}
                                 </div>
                             </label>
                         </div>
@@ -95,7 +90,7 @@ function Item({ draggedOver, list, setList, item, handleOnDragStart, handleOnDra
                     </div>
                 )
             }
-        </div>
+        </div >
 
     )
 }
