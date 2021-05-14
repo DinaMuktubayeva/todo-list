@@ -1,0 +1,121 @@
+$checkbox-width: 18px
+$dist-checkbox-text: 10px
+$color-grey: #aaa
+$color-blue: #4550c9
+
+input[type='text']
+    border-style: none
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    &:focus
+        outline: none
+
+ul
+    display: block
+    margin: 10vh auto 0
+    padding: 50px 60px
+    background-color: white
+    min-height: 40vh
+    border: 1px solid #eee
+    list-style: none
+    text-align: left
+    font-size: 17px
+    line-height: 2.1*$checkbox-width
+    width: 30%
+    text-align: left
+
+    .list-title
+        margin-bottom: 30px
+        font-size: 24px
+        text-align: center
+        padding: 0
+        width: 100%
+
+    li
+        .checkbox-container
+            display: flex
+            flex-direction: row
+            align-items: baseline
+            justify-content: space-between
+            border: 1px solid transparent
+
+            .icon
+                color: $color-grey
+                margin: 0 10px
+            .icon-lines
+                cursor: all-scroll
+                width: 20px
+            .icon-delete
+                margin-left: auto
+                cursor: pointer
+                &:hover
+                    color: #999
+            &:hover
+                background-color: #aaaaaa20
+
+        .dragged-over
+            border-top: 1px solid $color-blue
+            border-bottom: 1px solid $color-blue
+
+        .new-item input[type='text'], .edit-item input[type='text']
+            margin-left: 40px + $checkbox-width + $dist-checkbox-text
+            width: 70%f
+            font-size: 17px
+
+        .new-item input[type='text']
+            border-bottom: 2px solid $color-blue
+
+        .edit-item input[type='text']
+            border-bottom: 1px solid $color-grey
+
+@media screen and ( max-width:  920px)
+    ul
+        width: 100%
+
+.checkbox input[type='checkbox']
+    display: none
+
+.checkbox label
+    position: relative
+    display: inline-block
+    padding-left: $checkbox-width + $dist-checkbox-text
+    cursor: text
+
+.checkbox label::before,
+.checkbox label::after
+    position: absolute
+    content: ""
+    display: inline-block
+
+.checkbox label::before
+    text-align: center
+    top: $checkbox-width / 2
+    left: 0px
+    height: $checkbox-width
+    width: $checkbox-width
+    border: 1px solid $color-grey
+    cursor: pointer
+
+.checkbox label:hover::before
+    // box-shadow: 0px 0px 2px 1px rgba($color-blue, 0.25) inset
+    border: 1px solid $color-blue
+
+.checkbox label::after
+    left: $checkbox-width / 4
+    top: $checkbox-width / 2 + 4
+    height: $checkbox-width / 2 - 3
+    width: $checkbox-width / 2 + 1
+    border-left: 2px solid $color-blue
+    border-bottom: 2px solid $color-blue
+    transform: rotate(-45deg)
+
+.checkbox input[type="checkbox"] + label::after
+    content: none
+
+.checkbox input[type="checkbox"]:checked + label
+    text-decoration: line-through
+    color: $color-grey
+
+.checkbox input[type="checkbox"]:checked + label::after
+    content: ""
