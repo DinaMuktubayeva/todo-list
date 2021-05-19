@@ -1,20 +1,40 @@
-body {
+.App {
+  min-height: 100vh;
+  text-align: center;
+  background-color: var(--theme-background);
+  color: var(--theme-color);
+  padding: 50px 10px;
+  --list-width-pc: 600px;
+  --todo-width-pc: 450px;
+  
+  --list-width-tablet: 350px;
+  --todo-width-tablet: 200px;
+
+  --list-width-mobile: 250px;
+  --todo-width-mobile: 50px;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding-bottom: 0;
+  align-content: space-between;
 }
 
-.App {
-  text-align: center;
-  background-color: #fafafa;
+.icon-sun {
+  color: var(--theme-icon-color);
+  margin: -20px 40px 50px;
+  text-align: right;
+  font-size: 20px;
+}
+
+.icon-sun:hover {
+  color: var(--theme-icon-hover-color);
+  cursor: pointer;
 }
 
 footer {
-  align-self: flex-end;
-  margin: 20vh auto 0;
+  justify-self: flex-end;
+  margin: 50px 0;
   padding-bottom: 0;
-  color: #aaa;
+  color: #999;
   text-align: center;
 }
 

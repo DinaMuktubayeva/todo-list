@@ -85,7 +85,6 @@ function Item({ draggedOver, list, setList, item, handleOnDragStart, handleOnDra
                             </label>
                         </div>
                         <FontAwesomeIcon className='icon icon-delete' icon={faTrashAlt} onClick={deleteItem} />
-
                     </div>
                 )
             }

@@ -1,0 +1,23 @@
+.light {
+    --theme-color: #3543d8;
+    --theme-background: #fafafa;
+    --theme-text-color: #262626;
+    --theme-description-color: #888;
+    --theme-border-color: #ddd;
+    --theme-checkbox-color: #aaa;
+
+    --theme-icon-color: #c5c5c5;
+    --theme-icon-hover-color: #aaa;
+}
+
+.dark {
+    --theme-color: #3543d8;
+    --theme-background: #202020;
+    --theme-text-color: #ddd;
+    --theme-description-color: #999;
+    --theme-border-color: #555;
+    --theme-checkbox-color: #aaa;
+
+    --theme-icon-color: #7d7d7d;
+    --theme-icon-hover-color: #9e9e9e;
+}

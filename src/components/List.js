@@ -57,33 +57,28 @@ function List({ list, setList }) {
         let listCopy = list
         listCopy.splice(start, 1)
         listCopy.splice(end, 0, item)
-        // console.log(item)
-        // console.log("deleting at " + start)
-        // console.log("inserting into " + end)
         setList(listCopy)
     }
 
     return (
-        <div>
-            <ul>
-                <input className="list-info list-title" type="text" value={listTitle} onChange={e => setListTitle(e.target.value)} />
-                <input className="list-info list-description" type="text" value={listDescription}
-                    onChange={e => setListDescription(e.target.value)} />
-                {list.map((item) => (
-                    <li key={item.id}>
-                        <Item
-                            draggedOver={parseInt(draggedOverId) === parseInt(item.id)}
-                            list={list}
-                            setList={setList}
-                            item={item}
-                            handleOnDragStart={handleOnDragStart}
-                            handleOnDragOver={handleOnDragOver}
-                            handleOnDrop={handleOnDrop} />
-                    </li>
-                ))}
-                <li><Input addElement={addElement} newItem={newItem} inputHandler={inputHandler} /></li>
-            </ul>
-        </div>
+        <ul>
+            <input className="list-info list-title" type="text" value={listTitle} onChange={e => setListTitle(e.target.value)} />
+            <input className="list-info list-description" type="text" value={listDescription}
+                onChange={e => setListDescription(e.target.value)} />
+            {list.map((item) => (
+                <li key={item.id}>
+                    <Item
+                        draggedOver={parseInt(draggedOverId) === parseInt(item.id)}
+                        list={list}
+                        setList={setList}
+                        item={item}
+                        handleOnDragStart={handleOnDragStart}
+                        handleOnDragOver={handleOnDragOver}
+                        handleOnDrop={handleOnDrop} />
+                </li>
+            ))}
+            <li><Input addElement={addElement} newItem={newItem} inputHandler={inputHandler} /></li>
+        </ul>
     )
 }
 
