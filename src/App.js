@@ -9,6 +9,20 @@ function App() {
   const [list, setList] = useState([])
   const [theme, setTheme] = useState('light')
 
+  // on first render, load list from localStorage, if it's there
+  useEffect(() => {
+    const json = localStorage.getItem('list')
+    const savedList = JSON.parse(json)
+    if (savedList)
+      setList(savedList)
+  }, [])
+
+  // save notes locally
+  useEffect(() => {
+    const json = JSON.stringify(list)
+    localStorage.setItem('list', json)
+  }, [list])
+
   useEffect(() => {
     const darkOS = window.matchMedia(
       "(prefers-color-scheme: dark)"

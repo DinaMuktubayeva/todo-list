@@ -62,7 +62,7 @@ function Item({ draggedOver, list, setList, item, handleOnDragStart, handleOnDra
             {
                 editMode ? (
                     <div ref={node} className='checkbox'>
-                        <input type="checkbox" onChange={inputCheckHandler} />
+                        <input type="checkbox" defaultChecked={item.checked} onChange={inputCheckHandler} />
                         <form ref={form} className='edit-item' onSubmit={handleSubmit} >
                             <input type='text' value={newName} onChange={e => { setNewName(e.target.value) }} autoFocus />
                             <button type='submit' style={{ display: 'none' }}></button>
@@ -77,7 +77,7 @@ function Item({ draggedOver, list, setList, item, handleOnDragStart, handleOnDra
                     >
                         <FontAwesomeIcon className='icon icon-lines' icon={faGripLines} />
                         <div className="checkbox" >
-                            <input id={inputId} type="checkbox" onChange={inputCheckHandler} />
+                            <input id={inputId} type="checkbox" defaultChecked={item.checked} onChange={inputCheckHandler} />
                             <label htmlFor={inputId} >
                                 <div className="item-name" onClick={() => { setEditMode(true) }} >
                                     {item.name}
