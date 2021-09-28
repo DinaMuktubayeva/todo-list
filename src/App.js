@@ -46,7 +46,7 @@ function App() {
             Source code
           </a>
         </p>
-        <p>Author: Dina Muktubayeva (<a href="mailto:dina.muktubayeva@email.com">mail</a>)</p>
+        <p>Author: Dina Muktubayeva (<a href="mailto:dina.muktubayeva@gmail.com">mail</a>)</p>
         <p>2021</p>
       </footer>
     </div>
