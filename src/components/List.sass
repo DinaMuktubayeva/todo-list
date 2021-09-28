@@ -125,10 +125,18 @@ ul
 
     input[type="checkbox"] + label::after
         content: none
+        left: 4px
+        top: 9px + 4px
+        height: 9px - 3px
+        width: 9px + 1px
+        border-left: 2px solid var(--theme-color)
+        border-bottom: 2px solid var(--theme-color)
+        transform: rotate(-45deg)
+
 
     input[type="checkbox"]:checked + label
         text-decoration: line-through
-        color: rgba(var(--theme-text-color), 0.7)        
+        //color: rgba(var(--theme-text-color), 0.7)        
 
     //input[type="checkbox"]:checked + label::after
         //content: ""
